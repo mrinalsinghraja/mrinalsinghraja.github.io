@@ -1,26 +1,273 @@
 @import "tailwindcss";
 
+/* ── Tokens ───────────────────────────────────────────────────────────────────
+   Two themes, one token set. Light is the default and carries the brand; dark
+   is opt-in via the header toggle. `html[data-theme]` is stamped before first
+   paint by the inline script in layout.tsx, so neither theme flashes.
+
+   Text colours carry their measured contrast ratio against the surface they sit
+   on. Every pairing meets WCAG AA for its size.
+
+   Colour does two jobs and no others: --accent marks something you can act on,
+   --live marks something that is shipped and running. Nothing here is
+   decorative, which is why the system has no gradient in it. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Surfaces. Paper is a cool off-white; cards sit above it in pure white. */
+  --paper: #fcfcfd;
+  --surface: #ffffff;
+  --sunk: #f4f5f7;
+
+  /* Ink. Ratios below are measured in-browser against --paper, not calculated
+     against white — the difference sank an earlier --ink-3 that looked fine on
+     paper but fell to 4.36:1 once a ledger row was hovered onto --sunk. The
+     tightest surface a colour lands on is the one that decides it. */
+  --ink: #101114;   /* 18.4:1 on paper */
+  --ink-2: #55595f; /*  6.9:1 */
+  --ink-3: #6b6f77; /*  4.9:1 on paper, 4.6:1 on --sunk */
+
+  /* Hairlines. Deliberately faint — structure comes from space, not from lines. */
+  --rule: rgba(16, 17, 20, 0.085);
+  --rule-strong: rgba(16, 17, 20, 0.17);
+
+  /* Action */
+  --accent: #1c42e8;      /* 7.0:1 on white */
+  --accent-sunk: #f0f3fe;
+
+  /* Status: shipped and running. Only ever used on ledger dots and their label. */
+  --live: #0f7b52;        /* 5.3:1 on white */
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  /* Type roles. next/font declares the families in layout.tsx. */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #0c0d10;
+  --surface: #141519;
+  --sunk: #1a1c21;
+
+  --ink: #f3f4f6;   /* 17.7:1 on paper */
+  --ink-2: #a4a9b2; /*  8.2:1 */
+  --ink-3: #868b95; /*  5.7:1 on paper, 5.0:1 on --sunk */
+
+  --rule: rgba(255, 255, 255, 0.09);
+  --rule-strong: rgba(255, 255, 255, 0.19);
+
+  /* The light-theme blue falls to 2.4:1 on dark paper. Lifted, it reads 7.4:1. */
+  --accent: #7d9bff;
+  --accent-sunk: #161c33;
+
+  --live: #34c98b;  /* 9.1:1 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Header is sticky and 60px tall; keeps anchor targets clear of it. */
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Type roles ───────────────────────────────────────────────────────────────
+   Archivo is a variable grotesque with a real width axis. The nameplate runs it
+   wide and heavy; headings run it at normal width. Width is the one place this
+   page raises its voice, so it is spent on the name and nowhere else. */
+.nameplate {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 125%;
+  letter-spacing: -0.021em;
+  line-height: 0.95;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  line-height: 1.08;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  line-height: 1.25;
+}
+
+/* Data, identifiers, counts, platform tags. Mono earns its place by keeping the
+   ledger columns aligned across product names of unequal length. */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Ledger ───────────────────────────────────────────────────────────────────
+   The signature element. Each shipped product is one row: a status dot, the
+   name, and where it runs. The rows are the argument, so they get no card, no
+   shadow and no border — only a hairline between them and room to breathe. */
+.ledger-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.58rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.ledger-row:last-child {
+  border-bottom: 0;
+}
+
+/* The wash bleeds past the text so the whole row reads as one target. */
+.ledger-row:hover,
+.ledger-row:focus-visible {
+  background-color: var(--sunk);
+  box-shadow: -0.65rem 0 0 var(--sunk), 0.65rem 0 0 var(--sunk);
+}
+
+.ledger-row .row-name {
+  transition: color 0.16s ease;
+}
+
+.ledger-row:hover .row-name,
+.ledger-row:focus-visible .row-name {
+  color: var(--accent);
+}
+
+/* A small filled dot. Reads as a status light, survives being 6px on a phone. */
+.dot-live {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--live);
+  transform: translateY(-2px);
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────────────
+   Used only for featured work. The border separates; the shadow lifts the card
+   off the paper by a hair and no more. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(16, 17, 20, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--rule-strong);
+  box-shadow: 0 1px 2px rgba(16, 17, 20, 0.04), 0 12px 28px rgba(16, 17, 20, 0.06);
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] .card {
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ── Focus ────────────────────────────────────────────────────────────────────
+   :focus-visible so the ring appears for keyboard users without trailing the
+   mouse. Never removed anywhere in this stylesheet. */
+:where(a, button, summary, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────────────
+   One orchestrated entrance on the hero and nothing else. Scroll-triggered
+   reveals were tried and cut: on a page this short they all fired at once and
+   read as decoration. */
+.enter {
+  animation: enter 0.62s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* ── Chrome ───────────────────────────────────────────────────────────────────*/
+.nav-blur {
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -150%);
+  z-index: 100;
+  padding: 0.6rem 1.15rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
 }
