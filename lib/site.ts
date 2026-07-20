@@ -1,4 +1,10 @@
-import { projects, appStoreProjects, webProjects, TOTAL } from "./work";
+import {
+  projects,
+  appStoreProjects,
+  webProjects,
+  noAccountProjects,
+  TOTAL,
+} from "./work";
 
 // ── Site constants ────────────────────────────────────────────────────────────
 // This is a GitHub user site, so it is served from the domain root.
@@ -56,10 +62,11 @@ export const COUNTS = {
   total: TOTAL,
   web: webProjects.length,
   appStore: appStoreProjects.length,
+  noAccount: noAccountProjects.length,
 };
 
 /** One sentence, reused as the meta description and the hero subhead. */
-export const POSITIONING = `Independent software engineer in ${LOCATION}. I design and ship production apps end to end — ${COUNTS.total} of them live now across the web, macOS and iOS.`;
+export const POSITIONING = `Independent software engineer in ${LOCATION}. I design and ship production apps end to end — ${COUNTS.total} live now across the web, macOS and iOS, every one of them free.`;
 
 // ── Structured data ───────────────────────────────────────────────────────────
 // A Person graph rather than an Organization: this site is the individual, and
@@ -135,6 +142,11 @@ export const workJsonLd = {
             ? "macOS"
             : "iOS",
       author: { "@id": PERSON_ID },
+      // Asserted for all twenty because all twenty were checked: every App
+      // Store listing reports "price":0, and no web app has a payment step.
+      // Schema is read by machines that cannot verify, so it only ever carries
+      // claims that were verified first.
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
   })),
 };

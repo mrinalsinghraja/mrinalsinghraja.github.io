@@ -14,6 +14,7 @@ export const dynamic = "force-static";
 const EYEBROW = `Independent · ${COUNTS.total} shipped · Bengaluru`;
 const WEB_COUNT = `${COUNTS.web} web`;
 const STORE_COUNT = `${COUNTS.appStore} on the App Store`;
+const FREE = "All free";
 
 // Rendered once at build time. Light, like the site itself — a dark social card
 // in front of a light page is a small broken promise before anyone arrives.
@@ -75,7 +76,7 @@ export default function OgImage() {
             }}
           >
             Designs and ships production software end to end — across the web,
-            macOS and iOS.
+            macOS and iOS. Every app free, everywhere.
           </div>
         </div>
 
@@ -94,6 +95,7 @@ export default function OgImage() {
           <div style={{ display: "flex", gap: 26 }}>
             <div style={{ display: "flex" }}>{WEB_COUNT}</div>
             <div style={{ display: "flex" }}>{STORE_COUNT}</div>
+            <div style={{ display: "flex", color: "#0f7b52" }}>{FREE}</div>
           </div>
         </div>
       </div>

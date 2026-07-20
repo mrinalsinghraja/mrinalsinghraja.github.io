@@ -7,6 +7,12 @@
 // App Store listings and the eleven web apps. Counts elsewhere on the site are
 // derived from this array, never typed by hand, so they cannot drift.
 //
+// All twenty are free, everywhere, with no paid tier. Verified rather than
+// asserted: each of the ten App Store listings reports `"price":0`, and the
+// eleven web apps serve their product with no payment step. Ten of the eleven
+// also load with no account at all — checked by requesting each one cold, with
+// no cookies, and confirming none redirects to an auth wall.
+//
 // There are no download numbers, revenue figures, or user counts here, because
 // there is no public source for them. Absence is deliberate, not an omission.
 
@@ -31,6 +37,12 @@ export interface Project {
   macAppStoreHref?: string;
   domain: Domain;
   href: string;
+  /**
+   * Set only where the product needs an account to do its job. Everything else
+   * opens cold, in a private window, with nothing to sign up for — which is the
+   * claim worth making, so the exception has to be recorded honestly.
+   */
+  needsAccount?: true;
   /** Named technologies only — no vague "AI" or "cloud". */
   stack: string[];
   /** A real engineering property of the build, not a marketing claim. */
@@ -48,6 +60,9 @@ export const projects: Project[] = [
     platform: "web",
     domain: "Study",
     href: "https://planner.msrx.co.in",
+    // The one product that asks for an account: the whole point is a plan that
+    // follows the student between their phone and their laptop.
+    needsAccount: true,
     stack: ["Next.js", "TypeScript", "Zustand", "Supabase", "Postgres"],
     note: "Offline-first. Writes queue locally and reconcile on reconnect, so the planner keeps working with no network.",
   },
@@ -327,6 +342,9 @@ export const appStoreProjects = projects.filter((p) =>
 );
 
 export const TOTAL = projects.length;
+
+/** Products that open cold, with no account. Derived, so it cannot overstate. */
+export const noAccountProjects = projects.filter((p) => !p.needsAccount);
 
 /**
  * The four shown on the homepage. Chosen for range rather than rank: one study

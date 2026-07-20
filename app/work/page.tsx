@@ -31,19 +31,19 @@ const SECTIONS = [
   {
     id: "web",
     heading: "Web",
-    note: "Free to open, no account required.",
+    note: "Free. All but one open with no account at all.",
     list: webProjects,
   },
   {
     id: "macos",
     heading: "macOS",
-    note: "Native Mac apps, distributed through the Mac App Store.",
+    note: "Native Mac apps on the Mac App Store. Free downloads.",
     list: macProjects,
   },
   {
     id: "ios",
     heading: "iOS",
-    note: "Native iPhone apps, distributed through the App Store.",
+    note: "Native iPhone apps on the App Store. Free downloads.",
     list: iosProjects,
   },
 ];
@@ -79,6 +79,17 @@ function Entry({ project }: { project: Project }) {
               <dt className="label mb-1">Runs on</dt>
               <dd className="mono text-[12.5px] text-[var(--ink-2)]">
                 {platformLabel(project)}
+              </dd>
+            </div>
+            <div>
+              <dt className="label mb-1">Price</dt>
+              <dd className="mono text-[12.5px] text-[var(--ink-2)]">
+                Free
+                {project.platform === "web"
+                  ? project.needsAccount
+                    ? ", free account"
+                    : ", no account"
+                  : ""}
               </dd>
             </div>
             <div>
@@ -139,10 +150,11 @@ export default function Work() {
           {COUNTS.total} apps, all of them live
         </h1>
         <p className="max-w-[40rem] text-[16.5px] leading-relaxed text-[var(--ink-2)]">
-          {COUNTS.web} run in the browser and need no account. {COUNTS.appStore} went
-          through Apple review and ship natively on macOS or iOS. Each entry below
-          says what problem it solves and what it is built with — every link goes to
-          the running product.
+          {COUNTS.web} run in the browser. {COUNTS.appStore} went through Apple review
+          and ship natively on macOS or iOS. All {COUNTS.total} are free, everywhere,
+          with no paid tier — and {COUNTS.noAccount} of them open with no account at
+          all. Each entry says what problem it solves and what it is built with, and
+          every link goes to the running product.
         </p>
 
         {/* Jump links, not a JavaScript filter: the sections stay in the HTML so

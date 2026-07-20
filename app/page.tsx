@@ -31,6 +31,7 @@ export default function Home() {
             I build and ship production software on my own — design, engineering,
             release and support. {COUNTS.total} apps are live right now across the
             web, macOS and iOS; {COUNTS.appStore} of them went through Apple review.
+            Every one is free, everywhere, with nothing to buy.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-3">
@@ -75,9 +76,10 @@ export default function Home() {
         />
 
         <p className="mt-7 max-w-[36rem] text-[13.5px] leading-relaxed text-[var(--ink-3)]">
-          One product ships on both the web and the Mac, so the three columns
-          count {COUNTS.total + 1} entries for {COUNTS.total} apps. Every link
-          goes to the live product, not a screenshot.
+          All free, no paid tier anywhere. One product ships on both the web and
+          the Mac, so the three columns count {COUNTS.total + 1} entries for{" "}
+          {COUNTS.total} apps. Every link goes to the live product, not a
+          screenshot.
         </p>
       </section>
 
@@ -158,7 +160,7 @@ export default function Home() {
           How I work
         </h2>
 
-        <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-3">
+        <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               t: "End to end, alone",
@@ -169,8 +171,12 @@ export default function Home() {
               d: "Swift and SwiftUI on Apple platforms, TypeScript and React on the web. Different tools, same expectations for correctness, accessibility and speed.",
             },
             {
+              t: "Free, and not the trial kind",
+              d: `All ${COUNTS.total} are free everywhere, with no paid tier, no subscription and no upsell. ${COUNTS.noAccount} of them do not even ask for an account — open one in a private window and it works.`,
+            },
+            {
               t: "Privacy as a constraint",
-              d: "Several of these process entirely on the device — no account, no upload, no server-side copy. It is harder to build that way and it is the right default.",
+              d: "Several process entirely on the device — no account, no upload, no server-side copy. It is harder to build that way and it is the right default.",
             },
           ].map((item) => (
             <div key={item.t}>

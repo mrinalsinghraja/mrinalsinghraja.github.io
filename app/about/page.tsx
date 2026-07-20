@@ -55,6 +55,13 @@ export default function About() {
               without asking who you are first.
             </p>
             <p>
+              All {COUNTS.total} are free. Not free-for-now, not free-until-you-hit-a-limit
+              — there is no paid tier, no subscription and nothing to upsell, anywhere
+              in the world. {COUNTS.noAccount} of them do not ask for an account
+              either: open one in a private window and it works. A tool that can do
+              its job without knowing who you are should not ask.
+            </p>
+            <p>
               What I care about in a build, roughly in order: that it is correct,
               that it is fast enough to feel immediate, that it is usable by keyboard
               and screen reader, and that it does not collect anything it does not
@@ -85,6 +92,12 @@ export default function About() {
                 <dt className="label mb-1.5">Through Apple review</dt>
                 <dd className="text-[14.5px] text-[var(--ink)]">
                   {COUNTS.appStore} listings
+                </dd>
+              </div>
+              <div>
+                <dt className="label mb-1.5">Price</dt>
+                <dd className="text-[14.5px] text-[var(--ink)]">
+                  All free, no paid tier
                 </dd>
               </div>
               <div>
