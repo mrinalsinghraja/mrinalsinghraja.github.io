@@ -4,11 +4,11 @@ import { COUNTS, NAME, EMAIL, LOCATION, SOCIALS, og, breadcrumbJsonLd } from "@/
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${NAME} is a software engineer in ${LOCATION} who builds and ships apps in his own time, across the web, macOS and iOS. All of them free, none of them a business.`,
+  description: `${NAME} is a software engineer in ${LOCATION} who builds and ships apps across the web, macOS and iOS. All of them free, none of them a business.`,
   alternates: { canonical: "/about/" },
   openGraph: og({
     title: `About — ${NAME}`,
-    description: `Software engineer in ${LOCATION}. These are built in my own time.`,
+    description: `Software engineer in ${LOCATION}. Built for the enjoyment of building them.`,
     path: "/about/",
   }),
 };
@@ -35,11 +35,10 @@ export default function About() {
         <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
           <div className="max-w-[42rem] space-y-5 text-[16.5px] leading-[1.7] text-[var(--ink-2)]">
             <p>
-              I am a software engineer in {LOCATION} with a full-time job. Everything
-              here is built around it, in my own time, which means every app under my
-              name went from an empty repository to a live URL or an approved App Store
-              listing without anyone to hand the hard parts to — the schema, the layout,
-              the release notes, the support email.
+              I am a software engineer in {LOCATION}. Every app under my name went from
+              an empty repository to a live URL or an approved App Store listing without
+              anyone to hand the hard parts to — the schema, the layout, the release
+              notes, the support email.
             </p>
             <p>
               The work ships under{" "}
@@ -77,6 +76,13 @@ export default function About() {
               to collaborate, and I will make time for community work: the library
               platform runs for a real set of young readers, and it started that way.
             </p>
+            <p>
+              Nearly everything here began as a gap — something I went looking for,
+              could not find, and ended up writing. So if there is a tool you keep
+              reaching for that does not exist, describe it to me. A genuinely useful
+              idea is the scarce part; the building is the half I enjoy, and I would
+              happily take it on.
+            </p>
           </div>
 
           <aside>
@@ -106,7 +112,7 @@ export default function About() {
               <div>
                 <dt className="label mb-1.5">Open to</dt>
                 <dd className="text-[14.5px] text-[var(--ink)]">
-                  Collaboration and community work
+                  Collaboration, community work, and ideas for the next one
                 </dd>
               </div>
               <div>
