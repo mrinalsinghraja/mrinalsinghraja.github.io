@@ -4,11 +4,11 @@ import { COUNTS, NAME, EMAIL, LOCATION, SOCIALS, og, breadcrumbJsonLd } from "@/
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${NAME} is an independent software engineer in ${LOCATION} who designs, builds and ships production apps end to end across the web, macOS and iOS.`,
+  description: `${NAME} is a software engineer in ${LOCATION} who builds and ships apps in his own time, across the web, macOS and iOS. All of them free, none of them a business.`,
   alternates: { canonical: "/about/" },
   openGraph: og({
     title: `About — ${NAME}`,
-    description: `Independent software engineer in ${LOCATION}.`,
+    description: `Software engineer in ${LOCATION}. These are built in my own time.`,
     path: "/about/",
   }),
 };
@@ -29,16 +29,17 @@ export default function About() {
       <div className="mx-auto max-w-[68rem] px-5 pt-14 pb-12 sm:px-8 sm:pt-20">
         <p className="label mb-5">About</p>
         <h1 className="display mb-8 text-[clamp(30px,5.4vw,52px)] text-[var(--ink)]">
-          Independent, and shipping
+          A day job, and this
         </h1>
 
         <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
           <div className="max-w-[42rem] space-y-5 text-[16.5px] leading-[1.7] text-[var(--ink-2)]">
             <p>
-              I am a software engineer in {LOCATION}. I work on my own, which means
-              every app under my name went from an empty repository to a live URL or
-              an approved App Store listing without anyone to hand the hard parts to
-              — the schema, the layout, the release notes, the support email.
+              I am a software engineer in {LOCATION} with a full-time job. Everything
+              here is built around it, in my own time, which means every app under my
+              name went from an empty repository to a live URL or an approved App Store
+              listing without anyone to hand the hard parts to — the schema, the layout,
+              the release notes, the support email.
             </p>
             <p>
               The work ships under{" "}
@@ -70,9 +71,11 @@ export default function About() {
               default.
             </p>
             <p>
-              I am open to consulting, contract work, and full-time roles where the
-              job is to own something end to end. If you have a product that is stuck
-              somewhere between prototype and shipped, that is the part I am good at.
+              None of this is a business. There is no paid tier, no consulting behind
+              it and nothing being sold — I build these because I enjoy building them,
+              and the good part is when someone else gets some use out of one. I am glad
+              to collaborate, and I will make time for community work: the library
+              platform runs for a real set of young readers, and it started that way.
             </p>
           </div>
 
@@ -103,7 +106,7 @@ export default function About() {
               <div>
                 <dt className="label mb-1.5">Open to</dt>
                 <dd className="text-[14.5px] text-[var(--ink)]">
-                  Consulting, contract, full-time
+                  Collaboration and community work
                 </dd>
               </div>
               <div>

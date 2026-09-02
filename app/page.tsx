@@ -19,7 +19,7 @@ export default function Home() {
           argument than any sentence about being passionate. */}
       <section className="mx-auto max-w-[68rem] px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20">
         <div className="enter">
-          <p className="label mb-6">Independent · {COUNTS.total} shipped · Bengaluru</p>
+          <p className="label mb-6">Built after hours · {COUNTS.total} shipped · Bengaluru</p>
 
           <h1 className="nameplate mb-7 text-[clamp(38px,8.4vw,86px)] text-[var(--ink)]">
             Mrinal

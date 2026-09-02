@@ -66,7 +66,7 @@ export const COUNTS = {
 };
 
 /** One sentence, reused as the meta description and the hero subhead. */
-export const POSITIONING = `Independent software engineer in ${LOCATION}. I design and ship production apps end to end — ${COUNTS.total} live now across the web, macOS and iOS, every one of them free.`;
+export const POSITIONING = `Software engineer in ${LOCATION} with a full-time job. These are built in my own time, for the enjoyment of building them — ${COUNTS.total} live now across the web, macOS and iOS, every one of them free.`;
 
 // ── Structured data ───────────────────────────────────────────────────────────
 // A Person graph rather than an Organization: this site is the individual, and

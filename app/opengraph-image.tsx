@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 // <div> with several children unless it declares a display mode. Precomputing
 // the strings keeps every node below single-child, which is simpler to read
 // than scattering display:flex over text elements.
-const EYEBROW = `Independent · ${COUNTS.total} shipped · Bengaluru`;
+const EYEBROW = `Built after hours · ${COUNTS.total} shipped · Bengaluru`;
 const WEB_COUNT = `${COUNTS.web} web`;
 const STORE_COUNT = `${COUNTS.appStore} on the App Store`;
 const FREE = "All free";
