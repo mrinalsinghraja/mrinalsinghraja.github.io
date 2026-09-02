@@ -3,15 +3,19 @@
 // ledger, /work, the JSON-LD, and the sitemap.
 //
 // Rule for this file: nothing goes in that cannot be checked by a stranger.
-// Every `href` below was confirmed to return HTTP 200 on 2026-07-20 — the ten
-// App Store listings and the eleven web apps. Counts elsewhere on the site are
-// derived from this array, never typed by hand, so they cannot drift.
+// Every `href` below was re-confirmed to return HTTP 200 on 2026-09-02 — the
+// ten App Store listings and the twelve web apps. Counts elsewhere on the site
+// are derived from this array, never typed by hand, so they cannot drift.
 //
-// All twenty are free, everywhere, with no paid tier. Verified rather than
-// asserted: each of the ten App Store listings reports `"price":0`, and the
-// eleven web apps serve their product with no payment step. Ten of the eleven
-// also load with no account at all — checked by requesting each one cold, with
-// no cookies, and confirming none redirects to an auth wall.
+// All of them are free, everywhere, with no paid tier. Verified rather than
+// asserted: each App Store listing reports `"price":0`, and no web app has a
+// payment step. All but one also load with no account at all — checked by
+// requesting each one cold, with no cookies, and confirming none redirects to
+// an auth wall.
+//
+// Names come from the live App Store listing, not from memory: five were
+// renamed to the MSRX prefix while their URL slugs stayed the same, so a stale
+// name here would still have linked correctly and gone unnoticed.
 //
 // There are no download numbers, revenue figures, or user counts here, because
 // there is no public source for them. Absence is deliberate, not an omission.
@@ -185,6 +189,18 @@ export const projects: Project[] = [
     stack: ["Vanilla JavaScript", "Single-file build"],
     note: "One file, no framework and no build step — it loads and runs in under a second.",
   },
+  {
+    slug: "tools",
+    name: "MSRX Tools",
+    summary: "116 file, image and text tools that never upload your files",
+    problem:
+      "The everyday file jobs — merge a PDF, shrink an image, unzip an archive — mean handing the file to a website that keeps a copy.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://tools.msrx.co.in",
+    stack: ["Next.js", "TypeScript", "Web Crypto", "fflate", "pdf-lib"],
+    note: "Every one of the 116 runs inside the browser, so the file is read on the device and never transmitted. Works offline once loaded.",
+  },
 
   // ── macOS ───────────────────────────────────────────────────────────────────
   {
@@ -211,7 +227,7 @@ export const projects: Project[] = [
   },
   {
     slug: "orionshield",
-    name: "OrionShield",
+    name: "MSRX Shield",
     summary: "Background security and privacy monitoring",
     problem:
       "Security tools tend to demand attention constantly or disappear entirely.",
@@ -233,7 +249,7 @@ export const projects: Project[] = [
   },
   {
     slug: "orionclean",
-    name: "OrionClean",
+    name: "MSRX Clean",
     summary: "Disk cleanup that explains what it is about to remove",
     problem:
       "Cleaners free space by deleting things they will not name in advance.",
@@ -258,7 +274,7 @@ export const projects: Project[] = [
   },
   {
     slug: "numly",
-    name: "Numly",
+    name: "MSRX AI Calculator",
     summary: "A calculator that reads expressions written in plain language",
     problem:
       "Real calculations arrive as sentences, and calculators only accept keypresses.",
@@ -269,7 +285,7 @@ export const projects: Project[] = [
   },
   {
     slug: "pdf-compressor",
-    name: "PDF Compressor",
+    name: "MSRX PDF Compressor",
     summary: "PDF compression that runs entirely on the phone",
     problem:
       "Shrinking a PDF usually means uploading it to a website that keeps a copy.",
@@ -281,7 +297,7 @@ export const projects: Project[] = [
   },
   {
     slug: "passportfast",
-    name: "PassportFast",
+    name: "MSRX PassportFast",
     summary: "Compliant passport and ID photos from the camera roll",
     problem:
       "Passport photo rules are exacting, and a rejected photo costs an appointment.",
