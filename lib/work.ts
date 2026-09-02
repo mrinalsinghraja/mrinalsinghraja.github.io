@@ -85,7 +85,7 @@ export const projects: Project[] = [
   {
     slug: "storyquest",
     name: "MSRX StoryQuest",
-    summary: "202 STEM missions where the answer comes out of a real equation",
+    summary: "222 STEM missions where the answer comes out of a real equation",
     problem:
       "Most educational games ask for a number that was decided first and dressed up as a story afterwards.",
     platform: "web",
