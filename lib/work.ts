@@ -192,14 +192,14 @@ export const projects: Project[] = [
   {
     slug: "tools",
     name: "MSRX Tools",
-    summary: "116 file, image and text tools that never upload your files",
+    summary: "211 tools for files, images, video, audio, text, money and code",
     problem:
       "The everyday file jobs — merge a PDF, shrink an image, unzip an archive — mean handing the file to a website that keeps a copy.",
     platform: "web",
     domain: "Utilities",
     href: "https://tools.msrx.co.in",
     stack: ["Next.js", "TypeScript", "Web Crypto", "fflate", "pdf-lib"],
-    note: "Every one of the 116 runs inside the browser, so the file is read on the device and never transmitted. Works offline once loaded.",
+    note: "No file is ever uploaded — every file tool reads it on the device and never transmits it, and works offline once loaded. The AI writing tools are the one exception: they take typed text, never a file.",
   },
 
   // ── macOS ───────────────────────────────────────────────────────────────────
