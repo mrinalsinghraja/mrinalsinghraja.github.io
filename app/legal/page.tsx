@@ -32,7 +32,7 @@ const SECTIONS: { h: string; p: string[] }[] = [
     h: "Who this is",
     p: [
       `This site belongs to ${NAME}, an individual in ${LOCATION}. The apps are published under the name "MSRX", which is a brand name and not a registered company — there is no company, no partnership and no LLP behind it, and nothing here should be read as implying one.`,
-      `Anything on this page can be raised at ${EMAIL}, which is answered by the person who wrote the software.`,
+      `Anything on this page can be raised at ${EMAIL}, which is answered by the person who wrote the software. That address is also the grievance contact for the purposes of India's Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, and for any request under the Digital Personal Data Protection Act 2023. We aim to acknowledge within 24 hours and resolve within 15 days.`,
     ],
   },
   {
