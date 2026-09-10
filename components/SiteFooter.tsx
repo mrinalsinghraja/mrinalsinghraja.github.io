@@ -12,6 +12,7 @@ const PAGES = [
   { label: "Work", href: "/work/" },
   { label: "Stack", href: "/stack/" },
   { label: "About", href: "/about/" },
+  { label: "Legal", href: "/legal/" },
 ];
 
 export function SiteFooter() {
