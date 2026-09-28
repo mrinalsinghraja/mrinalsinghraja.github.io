@@ -29,7 +29,7 @@ export default function About() {
       <div className="mx-auto max-w-[68rem] px-5 pt-14 pb-12 sm:px-8 sm:pt-20">
         <p className="label mb-5">About</p>
         <h1 className="display mb-8 text-[clamp(30px,5.4vw,52px)] text-[var(--ink)]">
-          A day job, and this
+          Built for the joy of it
         </h1>
 
         <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
