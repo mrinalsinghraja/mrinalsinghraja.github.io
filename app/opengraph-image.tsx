@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { NAME, COUNTS } from "@/lib/site";
 
-export const alt = `${NAME} — software engineer, ${COUNTS.total} apps shipped across web, macOS and iOS, every one of them free`;
+export const alt = `${NAME} — IT professional, ${COUNTS.total} apps shipped across web, macOS and iOS, every one of them free`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 // See the note in robots.ts — static export has no request time.

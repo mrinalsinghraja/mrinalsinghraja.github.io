@@ -4,11 +4,11 @@ import { COUNTS, NAME, EMAIL, LOCATION, SOCIALS, og, breadcrumbJsonLd } from "@/
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${NAME} is a software engineer in ${LOCATION} who builds and ships apps across the web, macOS and iOS. All of them free, none of them a business.`,
+  description: `${NAME} is an IT professional in ${LOCATION} who builds and ships apps across the web, macOS and iOS. All of them free, none of them a business.`,
   alternates: { canonical: "/about/" },
   openGraph: og({
     title: `About — ${NAME}`,
-    description: `Software engineer in ${LOCATION}. Built for the enjoyment of building them.`,
+    description: `IT professional in ${LOCATION}. Built for the enjoyment of building them.`,
     path: "/about/",
   }),
 };
@@ -35,7 +35,7 @@ export default function About() {
         <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
           <div className="max-w-[42rem] space-y-5 text-[16.5px] leading-[1.7] text-[var(--ink-2)]">
             <p>
-              I am a software engineer in {LOCATION}. Every app under my name went from
+              I am an IT professional in {LOCATION}. Every app under my name went from
               an empty repository to a live URL or an approved App Store listing without
               anyone to hand the hard parts to — the schema, the layout, the release
               notes, the support email.

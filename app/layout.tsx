@@ -34,7 +34,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${NAME} — software engineer`,
+    default: `${NAME} — IT professional`,
     template: `%s — ${NAME}`,
   },
   description: POSITIONING,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   keywords: [
     NAME,
     HANDLE,
-    "software engineer",
+    "IT professional",
     "iOS developer",
     "macOS developer",
     "Swift",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     ...og({
-      title: `${NAME} — software engineer`,
+      title: `${NAME} — IT professional`,
       description: POSITIONING,
       path: "/",
     }),
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${NAME} — software engineer`,
+    title: `${NAME} — IT professional`,
     description: POSITIONING,
     creator: `@${HANDLE}`,
   },
