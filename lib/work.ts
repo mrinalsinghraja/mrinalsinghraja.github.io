@@ -134,7 +134,7 @@ export const projects: Project[] = [
   {
     slug: "canvasiq",
     name: "MSRX CanvasIQ",
-    summary: "A 2D and 3D design canvas that runs in the browser",
+    summary: "Paint-style pixel editor, 2D vector canvas and 3D modeller in the browser",
     problem:
       "Quick visual work forces a choice between a heavyweight desktop app and a toy.",
     platform: "web",
@@ -334,6 +334,16 @@ export const projects: Project[] = [
 
 // ── Derived views ─────────────────────────────────────────────────────────────
 // Every count on the site comes from here. None is written as prose.
+
+/**
+ * Web apps with a screenshot in public/work/<slug>.jpg (960x600), captured from
+ * the live site on 2026-10-07. Native apps have none: the only honest source is
+ * the App Store listing, and this site does not copy images from another one.
+ */
+export const SCREENSHOT_DATE = "2026-10-07";
+export function screenshotFor(p: Project): string | undefined {
+  return p.platform === "web" ? `/work/${p.slug}.jpg` : undefined;
+}
 
 export const PLATFORM_LABEL: Record<Platform, string> = {
   web: "Web",

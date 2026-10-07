@@ -5,6 +5,8 @@ import {
   macProjects,
   iosProjects,
   platformLabel,
+  screenshotFor,
+  SCREENSHOT_DATE,
   type Project,
 } from "@/lib/work";
 import { COUNTS, NAME, og, workJsonLd, breadcrumbJsonLd } from "@/lib/site";
@@ -49,6 +51,7 @@ const SECTIONS = [
 ];
 
 function Entry({ project }: { project: Project }) {
+  const shot = screenshotFor(project);
   return (
     <article className="border-t border-[var(--rule)] py-7">
       <div className="grid gap-x-10 gap-y-4 lg:grid-cols-[minmax(0,1fr)_15rem]">
@@ -70,6 +73,24 @@ function Entry({ project }: { project: Project }) {
             <p className="max-w-[42rem] border-l-2 border-[var(--rule-strong)] pl-3 text-[13.5px] leading-relaxed text-[var(--ink-2)]">
               {project.note}
             </p>
+          )}
+
+          {shot && (
+            <figure className="mt-5 max-w-[34rem]">
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export, optimizer is off */}
+              <img
+                src={shot}
+                alt={`${project.name} on its live site`}
+                width={960}
+                height={600}
+                loading="lazy"
+                decoding="async"
+                className="block h-auto w-full rounded-md border border-[var(--rule)]"
+              />
+              <figcaption className="mono mt-2 text-[11.5px] text-[var(--ink-3)]">
+                Captured from the live site, <time dateTime={SCREENSHOT_DATE}>7 Oct 2026</time>
+              </figcaption>
+            </figure>
           )}
         </div>
 
