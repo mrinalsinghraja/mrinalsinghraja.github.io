@@ -155,6 +155,18 @@ export const projects: Project[] = [
     note: "Scores scan reliability as you design and can repair a code that would have failed.",
   },
   {
+    slug: "invoice",
+    name: "MSRX Invoice",
+    summary: "38 invoice templates with your logo, exported as PDF, PNG and more",
+    problem:
+      "Making a tidy invoice usually means a sign-up, a watermark or a spreadsheet, and your client details end up on someone else's server.",
+    platform: "web",
+    domain: "Productivity",
+    href: "https://invoice.msrx.co.in",
+    stack: ["Next.js", "html-to-image", "jsPDF", "Groq"],
+    note: "Nothing is saved: logos are resized on the device and the document lives only in the open tab.",
+  },
+  {
     slug: "meeting",
     name: "MSRX Meeting",
     summary: "Browser meetings with noise cancellation and no install",
