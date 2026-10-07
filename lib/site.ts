@@ -142,8 +142,9 @@ export const workJsonLd = {
             ? "macOS"
             : "iOS",
       author: { "@id": PERSON_ID },
-      // Asserted for all twenty because all twenty were checked: every App
-      // Store listing reports "price":0, and no web app has a payment step.
+      // Asserted for every project because every one was checked (last on
+      // 2026-10-07, after MSRX UPI Desk was added): every App Store listing
+      // reports "price":0, and no web app has a payment step.
       // Schema is read by machines that cannot verify, so it only ever carries
       // claims that were verified first.
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

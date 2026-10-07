@@ -85,14 +85,14 @@ export const projects: Project[] = [
   {
     slug: "storyquest",
     name: "MSRX StoryQuest",
-    summary: "222 STEM missions where the answer comes out of a real equation",
+    summary: "222 STEM missions where the answer comes out of a real equation, with Ask AI and Quiz me",
     problem:
       "Most educational games ask for a number that was decided first and dressed up as a story afterwards.",
     platform: "web",
     domain: "Study",
     href: "https://story.msrx.co.in",
-    stack: ["React", "Vite", "JavaScript"],
-    note: "Every mission solves an actual equation. The target is derived from the physics, never authored to fit.",
+    stack: ["Next.js", "React", "KaTeX", "Groq"],
+    note: "Every mission solves an actual equation. The target is derived from the physics, never authored to fit. The Ask AI tutor guides without giving away the answer, and every quiz question is solved a second time, blind, before a student sees it.",
   },
   {
     slug: "weatherwatch",
@@ -200,6 +200,18 @@ export const projects: Project[] = [
     href: "https://split.msrx.co.in",
     stack: ["React", "TypeScript", "Yjs", "WebRTC", "Cloudflare Workers"],
     note: "Local-first: each member's phone holds the whole group and devices sync directly, so there is no server copy to lose or leak. Typed questions to Ask can use AI only when the admin turns it on and each person agrees, and names are replaced with labels before anything is sent.",
+  },
+  {
+    slug: "upi-desk",
+    name: "MSRX UPI Desk",
+    summary: "22 tools for the jobs around a UPI payment, in English and 22 Indian languages",
+    problem:
+      "A small shop that takes UPI still makes its counter QR, its credit book, its receipts and its GST invoices by hand — and has no quick way to tell a scam QR or a fake payment screen from a real one.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://upi.msrx.co.in",
+    stack: ["Next.js", "React", "TypeScript"],
+    note: "Runs in the browser and keeps working offline after one visit. It never moves money, and the optional AI assistant never sees the saved UPI ID.",
   },
   {
     slug: "tools",
