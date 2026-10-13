@@ -47,6 +47,8 @@ export interface Project {
    * claim worth making, so the exception has to be recorded honestly.
    */
   needsAccount?: true;
+  /** Optional step-by-step guide for the product, shown as a second link. */
+  guideHref?: string;
   /** Named technologies only — no vague "AI" or "cloud". */
   stack: string[];
   /** A real engineering property of the build, not a marketing claim. */
@@ -163,6 +165,7 @@ export const projects: Project[] = [
     platform: "web",
     domain: "Productivity",
     href: "https://invoice.msrx.co.in",
+    guideHref: "https://invoice.msrx.co.in/guide",
     stack: ["Next.js", "html-to-image", "jsPDF", "Groq"],
     note: "Nothing is saved: logos are resized on the device and the document lives only in the open tab.",
   },

@@ -136,6 +136,18 @@ function Entry({ project }: { project: Project }) {
             <span className="sr-only">(opens in a new tab)</span>
           </a>
 
+          {project.guideHref && (
+            <a
+              href={project.guideHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex min-h-6 items-center text-[13.5px] font-medium text-[var(--accent)] underline-offset-4 hover:underline"
+            >
+              Read the step-by-step guide
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          )}
+
           {project.macAppStoreHref && (
             <a
               href={project.macAppStoreHref}
