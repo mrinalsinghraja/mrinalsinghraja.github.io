@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -7,9 +7,11 @@ import { NAME, POSITIONING, SITE_URL, personJsonLd, HANDLE, og } from "@/lib/sit
 
 // Archivo carries the display voice. The width axis is loaded because the
 // nameplate sets it to 125% — without `axes`, font-stretch silently does nothing.
-const archivo = Archivo({
-  subsets: ["latin"],
-  axes: ["wdth"],
+// Self-hosted from @fontsource (OFL) rather than next/font/google: the Google variant
+// downloads fonts during `next build`, and a failed download fails the whole deploy.
+const archivo = localFont({
+  src: "../node_modules/@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2",
+  weight: "100 900",
   variable: "--font-archivo",
   display: "swap",
 });
@@ -17,16 +19,18 @@ const archivo = Archivo({
 // IBM Plex was drawn for an engineering company and reads like it: precise,
 // unfussy, and it has a mono sibling that shares its skeleton — which is what
 // makes the ledger columns sit correctly beside body text.
-const plexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const plexSans = localFont({
+  src: "../node_modules/@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2",
+  weight: "100 700",
   variable: "--font-plex-sans",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
+const plexMono = localFont({
+  src: [
+    { path: "../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-plex-mono",
   display: "swap",
 });
