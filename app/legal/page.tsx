@@ -60,11 +60,10 @@ const SECTIONS: { h: string; p: string[] }[] = [
     ],
   },
   {
-    h: "No warranty, and the limit of what I owe",
+    h: "No warranty, and zero liability",
     p: [
       "To the fullest extent the law allows, this site, the apps and the published code are provided on an “as is” and “as available” basis without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, accuracy and non-infringement.",
-      "To the fullest extent the law allows, I am not liable for any indirect, incidental, special or consequential loss, nor for lost profits, data, goodwill or opportunity, arising from your use of any of it. Where liability cannot lawfully be excluded, my total aggregate liability for all claims is limited to one thousand Indian rupees (₹1,000).",
-      "Nothing here excludes liability for death or personal injury caused by my negligence, for fraud, or for anything else that cannot lawfully be excluded under Indian law.",
+      "To the fullest extent the law allows, I am not liable for any indirect, incidental, special or consequential loss, nor for lost profits, data, goodwill or opportunity, arising from your use of any of it. I accept zero liability. To the fullest extent the law allows, I am not liable to you or to anyone else for any loss, damage, cost, claim or consequence of any kind arising from the use of, or inability to use, this site, any app or any published code, whether direct or indirect and whether in contract, negligence or otherwise. You use it entirely at your own risk. The only exceptions are those the law does not allow to be excluded, such as fraud.",
     ],
   },
   {
