@@ -38,7 +38,7 @@ const plexMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${NAME} — IT professional`,
+    default: `${NAME} — IT professional, maker of MSRX`,
     template: `%s — ${NAME}`,
   },
   description: POSITIONING,
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     ...og({
-      title: `${NAME} — IT professional`,
+      title: `${NAME} — IT professional, maker of MSRX`,
       description: POSITIONING,
       path: "/",
     }),
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${NAME} — IT professional`,
+    title: `${NAME} — IT professional, maker of MSRX`,
     description: POSITIONING,
     creator: `@${HANDLE}`,
   },

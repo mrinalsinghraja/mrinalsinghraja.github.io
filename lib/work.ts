@@ -217,6 +217,42 @@ export const projects: Project[] = [
     note: "Local-first: each member's phone holds the whole group and devices sync directly, so there is no server copy to lose or leak. Typed questions to Ask can use AI only when the admin turns it on and each person agrees, and names are replaced with labels before anything is sent.",
   },
   {
+    slug: "flights",
+    name: "MSRX Flights",
+    summary: "The cheapest Indian domestic flight by day and by time of day",
+    problem:
+      "Finding the cheapest day and hour to fly a domestic route means checking each date one search at a time and keeping the numbers in your head.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://flight.msrx.co.in",
+    stack: ["Next.js", "React", "TypeScript"],
+    note: "Fares are read from Google Flights and every result opens there to book; nothing is sold here, and no account, cookies or search history are kept.",
+  },
+  {
+    slug: "diwali-cards",
+    name: "MSRX Diwali Cards",
+    summary: "A personal Happy Diwali card from 63 designs, in English or 12 Indian languages",
+    problem:
+      "Most free greeting-card sites want an account, add a watermark or upload your names and photo to make a card.",
+    platform: "web",
+    domain: "Creative",
+    href: "https://diwali.msrx.co.in",
+    stack: ["JavaScript", "Canvas", "Vercel"],
+    note: "Cards are drawn in the browser and downloaded as PNG, JPG or PDF; names, wishes and photos never leave the device.",
+  },
+  {
+    slug: "gluconexa",
+    name: "MSRX GlucoNexa",
+    summary: "A private, offline diabetes logbook with doctor reports and carer links",
+    problem:
+      "Diabetes logbook apps usually keep every reading on their own servers, behind an account, before they will show a single trend.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://gluconexa.msrx.co.in",
+    stack: ["Next.js", "React", "TypeScript", "IndexedDB"],
+    note: "Beta. The whole log stays on the device with no server account; it is a logbook, not a medical device, and never recommends doses.",
+  },
+  {
     slug: "upi-desk",
     name: "MSRX UPI Desk",
     summary: "22 tools for the jobs around a UPI payment, in English and 22 Indian languages",

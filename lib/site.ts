@@ -82,7 +82,7 @@ export const personJsonLd = {
       "@type": "Person",
       "@id": PERSON_ID,
       name: NAME,
-      alternateName: HANDLE,
+      alternateName: [HANDLE, "Mrinal", "Mrinal Singh", "MSR"],
       url: SITE_URL,
       email: `mailto:${EMAIL}`,
       description: POSITIONING,
@@ -107,10 +107,20 @@ export const personJsonLd = {
       ],
     },
     {
+      // The brand the work ships under. Same @id as the portal's own graph, so
+      // search engines join the two into one entity.
+      "@type": "Organization",
+      "@id": "https://www.msrx.co.in/#organization",
+      name: "MSRX",
+      alternateName: ["msrx.co.in", "MSRX apps"],
+      url: SOCIALS.msrx,
+      founder: { "@id": PERSON_ID },
+    },
+    {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: `${NAME} — IT professional`,
+      name: `${NAME} — IT professional, maker of MSRX`,
       description: POSITIONING,
       inLanguage: "en",
       publisher: { "@id": PERSON_ID },
