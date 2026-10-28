@@ -159,7 +159,7 @@ export const projects: Project[] = [
   {
     slug: "invoice",
     name: "MSRX Invoice",
-    summary: "38 invoice templates with your logo, exported as PDF, PNG and more",
+    summary: "39 invoice templates with your logo, exported as PDF, PNG and more",
     problem:
       "Making a tidy invoice usually means a sign-up, a watermark or a spreadsheet, and your client details end up on someone else's server.",
     platform: "web",
