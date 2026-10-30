@@ -207,14 +207,14 @@ export const projects: Project[] = [
   {
     slug: "split",
     name: "MSRX Split",
-    summary: "Trip costs split between friends, with a budget, a forecast and an Ask button",
+    summary: "Trip costs split between friends, with a shared itinerary, photos, a budget and an Ask button",
     problem:
       "Sharing a trip's costs usually means one friend keeps a spreadsheet and everyone else trusts it, or everyone signs up for an app that keeps the group's spending on its servers.",
     platform: "web",
     domain: "Utilities",
     href: "https://split.msrx.co.in",
     stack: ["React", "TypeScript", "Yjs", "WebRTC", "Cloudflare Workers"],
-    note: "Local-first: each member's phone holds the whole group and devices sync directly, so there is no server copy to lose or leak. Typed questions to Ask can use AI only when the admin turns it on and each person agrees, and names are replaced with labels before anything is sent.",
+    note: "Local-first: each member's phone holds the whole group, itinerary and photos, and devices sync and share photos directly, so there is no server copy to lose or leak. Typed questions to Ask can use AI only when the admin turns it on and each person agrees, and names are replaced with labels before anything is sent.",
   },
   {
     slug: "flights",
