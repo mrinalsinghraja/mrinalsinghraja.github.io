@@ -241,6 +241,18 @@ export const projects: Project[] = [
     note: "Cards are drawn in the browser and downloaded as PNG, JPG or PDF; names, wishes and photos never leave the device.",
   },
   {
+    slug: "birthday-cards",
+    name: "MSRX Birthday Cards",
+    summary: "678 birthday cards, including a Birthday Calendar with one for every date of the year",
+    problem:
+      "Free birthday card sites mostly offer generic designs, ask for an account before you can download, and upload the photos you add.",
+    platform: "web",
+    domain: "Creative",
+    href: "https://birthday.msrx.co.in",
+    stack: ["JavaScript", "SVG", "Canvas", "Vercel"],
+    note: "Every design is vector art drawn in code, so it redraws for portrait, square, story and landscape; each date card shows its zodiac constellation, birth flower and birthstone. Names and photos never leave the device.",
+  },
+  {
     slug: "gluconexa",
     name: "MSRX GlucoNexa",
     summary: "A private, offline diabetes logbook with doctor reports and carer links",
