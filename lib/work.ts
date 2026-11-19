@@ -4,7 +4,8 @@
 //
 // Rule for this file: nothing goes in that cannot be checked by a stranger.
 // Every `href` below was re-confirmed to return HTTP 200 on 2026-10-07 — the
-// ten App Store listings and the thirteen web apps. Counts elsewhere on the site
+// ten App Store listings and the thirteen web apps — and the four web apps
+// added later (Security, Drive, Dose, Calorie AI) on 2026-11-20. Counts elsewhere on the site
 // are derived from this array, never typed by hand, so they cannot drift.
 //
 // All of them are free, everywhere, with no paid tier. Verified rather than
@@ -287,6 +288,56 @@ export const projects: Project[] = [
     href: "https://tools.msrx.co.in",
     stack: ["Next.js", "TypeScript", "Web Crypto", "fflate", "pdf-lib"],
     note: "No file is ever uploaded — every file tool reads it on the device and never transmits it, and works offline once loaded. The AI writing tools are the one exception: they take typed text, never a file.",
+  },
+
+  {
+    slug: "security",
+    name: "MSRX Security",
+    summary: "Scan any website and get a security report scored out of 10",
+    problem:
+      "Checking a site's HTTPS, headers, cookies and email-spoofing records means running several tools and reading raw output.",
+    platform: "web",
+    domain: "Security",
+    href: "https://security.msrx.co.in",
+    guideHref: "https://security.msrx.co.in/guide",
+    stack: ["Next.js", "TypeScript", "Neon Postgres", "TypeSafe Jev", "pdf-lib"],
+    note: "Reads what a website publishes and never sends attack payloads.",
+  },
+  {
+    slug: "drive",
+    name: "MSRX Drive",
+    summary: "A file manager in the browser: browse, search, preview and organise folders",
+    problem:
+      "A quick look through a folder usually means installing a file manager or uploading the files somewhere.",
+    platform: "web",
+    domain: "Productivity",
+    href: "https://drive.msrx.co.in",
+    stack: ["React", "TypeScript", "Vite", "pdf.js", "pdf-lib", "fflate"],
+    note: "Nothing is uploaded: no server, no account, no analytics, and it works offline.",
+  },
+  {
+    slug: "dose",
+    name: "MSRX Dose",
+    summary: "A medicine reminder that repeats until you answer",
+    problem:
+      "A single notification is easy to miss, and older people and carers need a reminder that keeps asking.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://dose.msrx.co.in",
+    stack: ["Next.js", "Service worker"],
+    note: "Installs from the browser with no account. A reminder, not medical advice.",
+  },
+  {
+    slug: "calorie",
+    name: "MSRX Calorie AI",
+    summary: "A private calorie and burn tracker with a daily balance",
+    problem:
+      "Most calorie trackers want an account and keep a copy of your food diary on their server.",
+    platform: "web",
+    domain: "Utilities",
+    href: "https://calorie.msrx.co.in/app",
+    stack: ["React", "TypeScript", "Vite", "Dexie", "IndexedDB"],
+    note: "Everything is kept in the browser, installs as an app, and needs no account.",
   },
 
   // ── macOS ───────────────────────────────────────────────────────────────────
